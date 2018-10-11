@@ -1,9 +1,9 @@
 <h2>Login</h2>
-<form [formGroup]="loginForm">
+<form [formGroup]="form" (ngSubmit)="login()" novalidate>
 
-  <div class="form-group">
+  <div class="form-group" >
     <label for="email">Email adress</label>
-    <input type="text" formControlName="email" placeholder="Enter your email adress" class="form-control" required [(ngModel)]="email" />
+    <input type="email" formControlName="email" name="email" value="nabil" placeholder="Enter your email adress" class="form-control" required [(ngModel)]="email" />
   </div>
   <div class="form-group">
     <label for="password">Password</label>
@@ -11,8 +11,12 @@
   </div>
   <br>
   <div class="form-group">
-    <a [routerLink]="['/condition']" class="btn btn-primary">
-      connexion
-    </a>
+    <!--button type="submit" id="connect"
+      [routerLink]="['/condition']">
+      connexion</button-->
+    <input type="submit" id="connect" name="connect" value="login" [disabled]="form.invalid">
+  </div>
+  <div class="" *ngIf="form.invalid && ( form.dirty || form.touched) || err === true">
+    <p>Un ou plusieurs champs sont invalides</p>
   </div>
 </form>
