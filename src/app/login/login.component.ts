@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 
 @Component({templateUrl: 'login.component.html'})
+
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loading = false;
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
 
   constructor(
-    private formBuilder: FormBuilder,
+    public formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router
   ) { }
