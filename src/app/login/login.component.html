@@ -1,5 +1,5 @@
 <h2>Login</h2>
-<form [formGroup]="form" (ngSubmit)="login()" novalidate>
+<form [formGroup]="form" (ngSubmit)="login()" novalidate [method]="post">
 
   <div class="form-group" >
     <label for="email">Email adress</label>
@@ -11,9 +11,6 @@
   </div>
   <br>
   <div class="form-group">
-    <!--button type="submit" id="connect"
-      [routerLink]="['/condition']">
-      connexion</button-->
     <input type="submit" id="connect" name="connect" value="login" [disabled]="form.invalid">
   </div>
   <div class="" *ngIf="form.invalid && ( form.dirty || form.touched) || err === true">

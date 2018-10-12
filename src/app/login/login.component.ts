@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({templateUrl: 'login.component.html'})
@@ -8,8 +8,6 @@ import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angula
 export class LoginComponent implements OnInit {
   form: FormGroup;
   loading = false;
-  submitted = false;
-  returnUrl: string;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -18,7 +16,7 @@ export class LoginComponent implements OnInit {
     private router: Router
   ) {
     this.form = fb.group({
-      email: ['', [Validators.required, Validators.minLength(3), Validators.email]],
+      email: ['', [Validators.required, Validators.minLength(3), Validators.email]], //min 3
       password: ['', [Validators.required, Validators.minLength(3)]],
     });
   }
@@ -26,12 +24,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() { }
   login() {
     this.router.navigate(['/condition']);
-          //this.router.navigate([this.returnUrl]);
-          //setTimeout(() => {
-           // location.reload();
-          //}, 1000)
-
-
   }
 
 }
